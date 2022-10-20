@@ -159,6 +159,7 @@ body {
 }
 
 .social-list {
+  min-width: 142px;
   margin-right: auto;
   list-style: none;
   display: flex;
@@ -175,6 +176,7 @@ body {
 }
 
 .htmlacademy-link {
+  width: 115px;
   margin-left: auto;
 }
 
@@ -550,6 +552,13 @@ body {
   padding-right: 20px;
   padding-top: 14px;
   padding-bottom: 14px;
+  margin-right: 70px;
+}
+
+/* Значки сортировки */
+
+.sorting-icons {
+  min-width: 160px;
 }
 
 /* Список гостиниц */
