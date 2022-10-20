@@ -2,7 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <title>HTML Academy: Седона</title>
+    <title>Гостиницы — Седона</title>
     <link rel="stylesheet" href="styles/styles.css">
   </head>
   <body>
@@ -187,7 +187,7 @@
               <button class="button button-apply" type="submit">
                 Применить
               </button>
-              <button class="button button-reset" type="reset">
+              <button class="button button-apply button-reset" type="reset">
                 Сбросить
               </button>
             </div>
@@ -201,49 +201,54 @@
       <section data-test="catalog" class="catalog-content">
         <h2 class="visually-hidden">Список гостиниц по выбранным критериям</h2>
 
-        <!-- Сортировка товаров -->
+        <!-- Сортировка гостиниц -->
         <section class="catalog-sorting">
           <h3 class="visually-hidden">Сортировка гостиниц</h3>
           <p class="search-result">Найдено гостиниц: 38</p>
 
-          <!-- Форма сортировки -->
-          <form class="sorting-form">
-            <label class="visually-hidden" for="sorting">
-              Сортировка
-            </label>
-            <select class="select-control" id="sorting">
-              <option value="cheap" selected>
-                Сначала дешёвые
-              </option>
-              <option value="expensive">
-                Сначала дорогие
-              </option>
-              <option value="popular">
-                Сначала популярные
-              </option>
-            </select>
-            <button class="visually-hidden" type="submit">
-              Отсортировать гостиницы
-            </button>
-          </form>
+          <!-- Обёртка -->
+          <div class="sorting-wrapper">
 
-          <!-- Значки сортировки -->
-          <div class="sorting-icons">
-            <a href="#" class="sorting-button sorting-button-current">
-              <span class="visually-hidden">
-                Отобразить плиткой
-              </span>
-            </a>
-            <a href="#" class="sorting-button">
-              <span class="visually-hidden">
-                Отобразить списком
-              </span>
-            </a>
-            <a href="#" class="sorting-button">
-              <span class="visually-hidden">
-                Отобразить слайдшоу
-              </span>
-            </a>
+            <!-- Форма сортировки -->
+            <form class="sorting-form">
+              <label class="visually-hidden" for="sorting">
+                Сортировка
+              </label>
+              <select class="select-control" id="sorting">
+                <option value="cheap" selected>
+                  Сначала дешёвые
+                </option>
+                <option value="expensive">
+                  Сначала дорогие
+                </option>
+                <option value="popular">
+                  Сначала популярные
+                </option>
+              </select>
+              <button class="visually-hidden" type="submit">
+                Отсортировать гостиницы
+              </button>
+            </form>
+
+            <!-- Значки сортировки -->
+            <div class="sorting-icons">
+              <a href="#" class="sorting-button sorting-button-current">
+                <span class="visually-hidden">
+                  Отобразить плиткой
+                </span>
+              </a>
+              <a href="#" class="sorting-button">
+                <span class="visually-hidden">
+                  Отобразить списком
+                </span>
+              </a>
+              <a href="#" class="sorting-button">
+                <span class="visually-hidden">
+                  Отобразить слайдшоу
+                </span>
+              </a>
+            </div>
+
           </div>
 
         </section>
@@ -436,7 +441,7 @@
           <label for="email" class="visually-hidden">
             Ваш e-mail
           </label>
-          <input type="text" id="email" name="subscribe-email" placeholder="Ваш e-mail">
+          <input class="subscribe-input" type="text" id="email" name="subscribe-email" placeholder="Ваш e-mail">
           <button class="subscribe-button button" type="submit">
             Подписаться
           </button>
