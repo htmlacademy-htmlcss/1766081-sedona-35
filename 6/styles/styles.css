@@ -132,7 +132,7 @@ body {
   line-height: 24px;
   font-weight: 700;
   color: #000000;
-  text-decoration: none; /* без подчёркивания */
+  text-decoration: none;
   display: block;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -155,29 +155,38 @@ body {
   padding-top: 40px;
   padding-bottom: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: red;
 }
 
 .social-list {
   min-width: 142px;
-  margin-right: auto;
+  margin: 0;
+  padding: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  background-color: blue;
+}
+
+.footer-address {
+  width: 720px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: violet;
 }
 
 .footer-address-phone {
-  width: 400px;
   font-size: 40px;
   line-height: 40px;
   font-style: normal;
   color: #000000;
-  text-decoration: none; /* без подчёркивания */
+  text-decoration: none;
 }
 
 .htmlacademy-link {
   width: 115px;
-  margin-left: auto;
+  background-color: #7DB54F;
 }
 
 /* ГЛАВНАЯ */
@@ -216,7 +225,7 @@ body {
 }
 
 .advantages-description {
-  line-height: 36px;
+  line-height: 26px;
   margin: 0;
   padding: 0;
 }
@@ -265,6 +274,7 @@ body {
 .reason-title {
   color: #000000;
   font-weight: 700;
+  text-align: center;
   text-transform: uppercase;
   font-size: 24px;
   line-height: 28px;
@@ -396,10 +406,12 @@ body {
   padding-top: 14px;
   padding-bottom: 14px;
   border: none;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .subscribe-button {
-  width: 212px;
+  width: 232px;
 }
 
 /* КАТАЛОГ */
@@ -422,6 +434,13 @@ body {
 
 .catalog-header {
   margin-bottom: 40px;
+}
+
+.catalog-header-title {
+  font-size: 60px;
+  line-height: 78px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Хлебные крошки */
@@ -564,11 +583,13 @@ body {
 /* Список гостиниц */
 
 .hotels-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 340px);
+  gap: 20px;
   list-style: none;
   margin: 0;
   padding: 0;
+  margin-bottom: 40px;
 }
 
 /* Карточка гостиницы */
@@ -576,45 +597,74 @@ body {
 .hotels-card {
   width: 300px;
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 140px);
+  row-gap: 16px;
+  column-gap: 20px;
 }
 
 .hotels-image {
-  margin-bottom: 16px;
+  grid-row: 1;
+  grid-column: -1/1;
+}
+
+.hotels-link {
+  grid-row: 2;
+  grid-column: -1/1;
+  color: #000000;
+  text-decoration: none;
 }
 
 .hotels-title {
   margin: 0;
   padding: 0;
-  margin-bottom: 16px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 .hotels-description {
+  grid-row: 3;
+  grid-column: 1;
   font-size: 18px;
   line-height: 21px;
 }
 
 .hotels-price {
+  grid-row: 3;
+  grid-column: 2;
   font-size: 18px;
   line-height: 21px;
-}
-
-.hotels-link {
-  font-size: 24px;
-  line-height: 28px;
-  color: #000000;
-  text-decoration: none;
-}
-
-.hotels-rating {
-  font-size: 16px;
-  line-height: 20px;
-  text-transform: uppercase;
+  font-weight: 400;
+  text-align: end;
 }
 
 .hotels-button {
+  grid-row: 4;
+  grid-column: 1;
   width: 120px;
   font-size: 16px;
   line-height: 20px;
+}
+
+.favorite {
+  grid-column: 2;
+}
+
+.hotels-stars {
+  grid-row: 5;
+  grid-column: 2;
+}
+
+.hotels-rating {
+  grid-row: 5;
+  grid-column: 2;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: end;
+  padding-top: 9px;
+  padding-bottom: 8px;
+  padding-right: 22px;
 }
 
 /* Пагинация */
@@ -622,10 +672,14 @@ body {
 .pagination-list {
   list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 .pagination-link {
-  dislay: block;
+  display: block;
   box-sizing: border-box;
   width: 60px;
   height: 60px;
