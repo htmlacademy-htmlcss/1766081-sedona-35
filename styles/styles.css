@@ -37,14 +37,16 @@ body {
   font-family: "PT Sans", sans-serif;
   font-size: 22px;
   line-height: 26px;
-  color: #333333;
-  background-color: #FFFFFF;
   text-align: center;
   margin: 0 auto;
+  padding: 0;
   display: flex;
   flex-direction: column;
   min-height: 100%;
   width: 1200px;
+  color: #333333;
+  background-color: #F2F2F2;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
 .main-container {
@@ -83,14 +85,38 @@ body {
   padding-bottom: 8px;
   padding-left: 10px;
   padding-right: 10px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 .button-modal {
-  background-color: #756257;
+  background-color: #756157;
 }
 
 .favorite-selected {
   background-color: #7DB54F;
+}
+
+.button:hover, .button:focus {
+  background-color: #68A2CA;
+}
+
+.button-modal:hover, .button-modal:focus {
+  background-color: #615048;
+}
+
+.favorite-selected:hover, .favorite-selected:focus {
+  background-color: #6C9E42;
+}
+
+.button:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.button:disabled {
+  background-color: #E5E5E5;
+  color: #FFFFFF;
+  cursor: default;
 }
 
 /* Хедер */
@@ -98,16 +124,18 @@ body {
 .page-header {
   text-align: left;
   display: flex;
+  position: relative;
 }
 
 .header-logo {
   margin-left: 70px;
+  position: absolute;
 }
 
 .main-navigation {
   display: flex;
   width: 892px;
-  padding-left: 28px;
+  padding-left: 238px;
   padding-right: 70px;
 }
 
@@ -138,12 +166,56 @@ body {
   padding-bottom: 20px;
   padding-left: 16px;
   padding-right: 16px;
+  position: relative;
+}
+
+.navigation-link-current::after {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #756257;
+    box-sizing: border-box;
+    position: absolute;
+    width: calc(100% - 32px);
+    bottom: -2px;
+}
+
+.navigation-icon {
+  display: block;
+  width: 44px;
+  height: 64px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.navigation-search {
+  background-image: url("../images/header/svg/search.svg");
+}
+
+.navigation-favorite {
+  background-image: url("../images/header/svg/favorite.svg");
+}
+
+.navigation-favorite::after {
+  position: absolute;
+  content: "12";
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+  width: 20px;
+  top: 11px;
+  left: 20px;
+  border-radius: 50%;
+  background-color: #7db54f;
 }
 
 .navigation-button {
   width: 140px;
   font-size: 16px;
   line-height: 20px;
+  margin-left: 20px;
 }
 
 /* Футер */
@@ -156,27 +228,38 @@ body {
   padding-bottom: 30px;
   display: flex;
   justify-content: space-between;
-  background-color: red;
 }
 
 .social-list {
+  display: flex;
+  flex-wrap: wrap;
   min-width: 142px;
   margin: 0;
   padding: 0;
   padding-top: 5px;
   padding-bottom: 5px;
   list-style: none;
-  background-color: blue;
+}
+
+.social-button {
+  color: #83B3D3;
+}
+
+.social-button:hover, .social-button:focus {
+  color: #68A2CA;
+}
+
+.social-button:active {
+  color: rgba(104, 162, 202, 0.3);
 }
 
 .footer-address {
   width: 720px;
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: violet;
 }
 
-.footer-address-phone {
+.footer-phone {
   font-size: 40px;
   line-height: 40px;
   font-style: normal;
@@ -184,9 +267,25 @@ body {
   text-decoration: none;
 }
 
+.footer-phone:hover, .footer-phone:focus {
+  color: rgba(117, 97, 87, 1);
+}
+
+.footer-phone:active {
+  color:rgba(117, 97, 87, 0.3);
+}
+
 .htmlacademy-link {
   width: 115px;
-  background-color: #7DB54F;
+  color: #000000;
+}
+
+.htmlacademy-link:hover, .htmlacademy-link:focus {
+  color: #756157;
+}
+
+.htmlacademy-link:active {
+  color: rgba(117, 97, 87, 0.3);
 }
 
 /* ГЛАВНАЯ */
@@ -212,6 +311,10 @@ body {
 }
 
 /* Преимущества */
+
+.advantages {
+  background-color: #FFFFFF;
+}
 
 .advantages-header {
   padding-left: 200px;
@@ -249,6 +352,7 @@ body {
 }
 
 .advantages-reason {
+  position: relative;
   width: 230px;
   min-height: 236px;
   padding-left: 85px;
@@ -285,6 +389,21 @@ body {
   margin-bottom: 62px;
 }
 
+.reason-title::after {
+  display: block;
+  position: relative;
+  top: 30px;
+  content: "";
+  margin: 0 auto;
+  width: 60px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.reason-photo .reason-title::after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 .reason-photo .reason-title {
   color: #FFFFFF
 }
@@ -319,6 +438,16 @@ body {
 }
 
 .features-title {
+  color: #000000;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0;
+  padding: 0;
+  padding-left: 27px;
+  padding-right: 27px ;
   margin-bottom: 30px;
 }
 
@@ -376,7 +505,7 @@ body {
   background-color: #68A2CA;
   color: #FFFFFF;
   background-image: url("../images/index/subscribe-background.jpg");
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -408,10 +537,12 @@ body {
   border: none;
   font-size: 18px;
   line-height: 24px;
+  border-radius: 4px 0 0 4px;
 }
 
 .subscribe-button {
   width: 232px;
+  border-radius: 0 4px 4px 0;
 }
 
 /* КАТАЛОГ */
@@ -433,7 +564,7 @@ body {
 /* Хедер каталога */
 
 .catalog-header {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .catalog-header-title {
@@ -446,9 +577,16 @@ body {
 /* Хлебные крошки */
 
 .breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   list-style: none;
+  position: relative;
+}
+
+.breadcrumbs-item {
+  display: flex;
 }
 
 .breadcrumbs-link {
@@ -456,6 +594,37 @@ body {
   line-height: 21px;
   color: #FFFFFF;
   text-decoration: none;
+  cursor: pointer;
+  padding-right: 10px;
+  padding-top: 8px;
+  padding-bottom: 10px;
+}
+
+.breadcrumbs-item:not(:first-child) .breadcrumbs-link  {
+  padding-left: 10px;
+}
+
+.breadcrumbs-link:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.breadcrumbs-link:focus {
+  color: #FFFFFF
+}
+
+.breadcrumbs-link:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.breadcrumbs-item:not(:first-child)::before {
+  position: relative;
+  content: "";
+  background-image: url("../images/catalog/svg/breadcrumbs-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 8px;
+  height: 12px;
+  top: 13px;
 }
 
 /* Фильтры */
@@ -513,6 +682,26 @@ body {
 
 .button-reset {
   background-color: transparent;
+}
+
+.button-reset:hover {
+  background-color: transparent;
+  color:rgba(255, 255, 255, 0.6);
+}
+
+.button-reset:focus {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 3px #83b3d3;
+}
+
+.button-reset:active {
+  background-color: transparent;
+  color:rgba(255, 255, 255, 0.3);
+}
+
+.button-reset:disabled {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.1);
 }
 
 /* Слайдер */
@@ -576,8 +765,48 @@ body {
 
 /* Значки сортировки */
 
-.sorting-icons {
+.view {
   min-width: 160px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-button {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 2px #E5E5E5;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.view-button:not(:first-child) {
+  margin-left: 8px;
+}
+
+.view-table {
+  background-image: url("../images/catalog/svg/view-table.svg");
+}
+
+.view-slide {
+  background-image: url("../images/catalog/svg/view-slide.svg");
+}
+
+.view-list {
+  background-image: url("../images/catalog/svg/view-list.svg");
+}
+
+.view-button:hover {
+  box-shadow: inset 0 0 0 2px #000000;
+}
+
+.view-button:focus {
+  box-shadow: inset 0 0 0 2px #68A2CA;
+}
+
+.view-button:active {
+  box-shadow: inset 0 0 0 2px #000000;
 }
 
 /* Список гостиниц */
@@ -652,7 +881,12 @@ body {
 
 .hotels-stars {
   grid-row: 5;
-  grid-column: 2;
+  grid-column: 1;
+  display: block;
+  margin: auto 0;
+  background-image: url("../images/catalog/svg/rating-star.svg");
+  background-repeat: repeat-x;
+  height: 17px;
 }
 
 .hotels-rating {
@@ -665,6 +899,28 @@ body {
   padding-top: 9px;
   padding-bottom: 8px;
   padding-right: 22px;
+}
+
+/* Звёзды */
+
+.hotels-stars-1 {
+  width: 24px;
+}
+
+.hotels-stars-2 {
+  width: 42px;
+}
+
+.hotels-stars-3 {
+  width: 66px;
+}
+
+.hotels-stars-4 {
+  width: 90px;
+}
+
+.hotels-stars-5 {
+  width: 114px;
 }
 
 /* Пагинация */
@@ -693,6 +949,11 @@ body {
 }
 
 .pagination-more {
+  color: #000000;
+  background-color: #F2F2F2;
+}
+
+.pagination-current:hover, .pagination-current:focus, .pagination-current:active, .pagination-more:hover, .pagination-more:focus, .pagination-more:active {
   color: #000000;
   background-color: #F2F2F2;
 }
