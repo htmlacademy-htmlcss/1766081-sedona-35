@@ -102,15 +102,19 @@
               <ul class="filter-list">
                 <li class="filter-item">
                   <label class="control">
-                  <input class="visually-hidden control-input" type="checkbox" name="pool" checked>
-                  <span class="control-label">
-                    Бассейн
-                  </span>
-                  </label>
+                    <input class="visually-hidden control-input" type="checkbox" name="pool" checked>
+                    <span class="control-mark">
+                    </span>
+                    <span class="control-label">
+                      Бассейн
+                    </span>
+                    </label>
                 </li>
                 <li class="filter-item">
                   <label class="control">
                     <input class="visually-hidden control-input" type="checkbox" name="parking" checked>
+                    <span class="control-mark">
+                    </span>
                     <span class="control-label">
                       Парковка
                     </span>
@@ -119,6 +123,8 @@
                 <li class="filter-item">
                   <label class="control">
                     <input class="visually-hidden control-input" type="checkbox" name="wifi">
+                    <span class="control-mark">
+                    </span>
                     <span class="control-label">
                       Wi-Fi
                     </span>
@@ -136,6 +142,8 @@
                 <li class="filter-item">
                   <label class="control">
                     <input class="visually-hidden control-input" type="radio" name="hotel-type" value="inn" checked>
+                    <span class="control-radio">
+                    </span>
                     <span class="control-label">
                       Гостиница
                     </span>
@@ -144,6 +152,8 @@
                 <li class="filter-item">
                   <label class="control">
                     <input class="visually-hidden control-input" type="radio" name="hotel-type" value="motel">
+                    <span class="control-radio">
+                    </span>
                     <span class="control-label">
                       Мотель
                     </span>
@@ -152,6 +162,8 @@
                 <li class="filter-item">
                   <label class="control">
                     <input class="visually-hidden control-input" type="radio" name="hotel-type" value="apartment">
+                    <span class="control-radio">
+                    </span>
                     <span class="control-label">
                       Апартаменты
                     </span>
@@ -161,29 +173,41 @@
             </fieldset>
 
             <!-- Слайдер с ценой -->
-            <fieldset class="filter-group filter-price">
+            <fieldset class="filter-price">
               <legend class="filter-title">
                 Стоимость, ₽:
               </legend>
               <label class="filter-label">
-                от
+                <span class="label-text">
+                  от
+                </span>
                 <input class="filter-input" type="number" name="min-price" value="0">
               </label>
               <label class="filter-label">
-                до
+                <span class="label-text">
+                  до
+                </span>
                 <input class="filter-input" type="number" name="max-price" value="9000">
               </label>
-              <button class="range-toggle toggle-min" type="button">
-                <span class="visually-hidden">
-                  Изменить минимальную стоимость
-                </span>
-              </button>
-              <button class="range-toggle toggle-max" type="button">
-                <span class="visually-hidden">
-                  Изменить максимальную стоимость
-                </span>
-              </button>
+              <!-- Трек -->
+              <div class="range">
+                <div class="range-scale">
+                  <div class="range-bar" style="left: 0; width: 226px;">
+                    <button class="range-toggle toggle-min" type="button">
+                      <span class="visually-hidden">
+                        Изменить минимальную стоимость
+                      </span>
+                    </button>
+                    <button class="range-toggle toggle-max" type="button">
+                      <span class="visually-hidden">
+                        Изменить максимальную стоимость
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </fieldset>
+
             <div class="filter-buttons">
               <button class="button button-apply" type="submit">
                 Применить
@@ -211,13 +235,13 @@
           <div class="sorting-wrapper">
 
             <!-- Форма сортировки -->
-            <form class="sorting-form">
+            <div class="sorting-form">
               <label class="visually-hidden" for="sorting">
                 Сортировка
               </label>
               <select class="select-control" id="sorting">
                 <option value="cheap" selected>
-                  Сначала дешёвые
+                  Сначала дешевые
                 </option>
                 <option value="expensive">
                   Сначала дорогие
@@ -226,10 +250,7 @@
                   Сначала популярные
                 </option>
               </select>
-              <button class="visually-hidden" type="submit">
-                Отсортировать гостиницы
-              </button>
-            </form>
+            </div>
 
             <!-- Значки сортировки -->
             <div class="view">
@@ -266,8 +287,8 @@
             <!-- 1 гостиница -->
             <li class="hotels-item">
               <div class="hotels-card">
-                <img class="hotels-image" src="images/catalog/hotel-amara-resort-and-spa.jpg" width="300" height="212" alt="Фото гостиницы">
                 <a class="hotels-link" href="#">
+                  <img class="hotels-image" src="images/catalog/hotel-amara-resort-and-spa.jpg" width="300" height="212" alt="Фото гостиницы">
                   <h4 class="hotels-title">
                     Amara Resort & Spa
                   </h4>
@@ -298,8 +319,8 @@
             <!-- 2 гостиница -->
             <li class="hotels-item">
               <div class="hotels-card">
-                <img class="hotels-image" src="images/catalog/hotel-villas-at-poco-diablo.jpg" width="300" height="212" alt="Фото гостиницы">
                 <a class="hotels-link" href="#">
+                  <img class="hotels-image" src="images/catalog/hotel-villas-at-poco-diablo.jpg" width="300" height="212" alt="Фото гостиницы">
                   <h4 class="hotels-title">
                     Villas at Poco Diablo
                   </h4>
@@ -330,8 +351,8 @@
             <!-- 3 гостиница -->
             <li class="hotels-item">
               <div class="hotels-card">
-                <img class="hotels-image" src="images/catalog/hotel-desert-quail-inn.jpg" width="300" height="212" alt="Фото гостиницы">
                 <a class="hotels-link" href="#">
+                  <img class="hotels-image" src="images/catalog/hotel-desert-quail-inn.jpg" width="300" height="212" alt="Фото гостиницы">
                   <h4 class="hotels-title">
                     Desert Quail Inn
                   </h4>
@@ -362,8 +383,8 @@
             <!-- 4 гостиница -->
             <li class="hotels-item">
               <div class="hotels-card">
-                <img class="hotels-image" src="images/catalog/hotel-greentree-inn.jpg" width="300" height="212" alt="Фото гостиницы">
                 <a class="hotels-link" href="#">
+                  <img class="hotels-image" src="images/catalog/hotel-greentree-inn.jpg" width="300" height="212" alt="Фото гостиницы">
                   <h4 class="hotels-title">
                     GreenTree Inn
                   </h4>
@@ -442,7 +463,7 @@
           <label for="email" class="visually-hidden">
             Ваш e-mail
           </label>
-          <input class="subscribe-input" type="text" id="email" name="subscribe-email" placeholder="Ваш e-mail">
+          <input class="subscribe-input" type="text" id="email" name="subscribe-email" placeholder="Ваш e-mail" required>
           <button class="subscribe-button button" type="submit">
             Подписаться
           </button>
