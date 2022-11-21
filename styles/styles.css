@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 1 version
+*/
+
 /* Шрифты */
 
 @font-face {
@@ -165,34 +172,31 @@ body {
 }
 
 .navigation-link-current::after {
-    content: "";
-    display: block;
-    border-bottom: 2px solid #756257;
-    box-sizing: border-box;
-    position: absolute;
-    width: calc(100% - 32px);
-    bottom: -1px;
+  content: "";
+  display: block;
+  border-bottom: 2px solid #756257;
+  box-sizing: border-box;
+  position: absolute;
+  width: calc(100% - 32px);
+  bottom: -1px;
 }
 
-.navigation-icon {
+.user-link {
   display: block;
   width: 44px;
   height: 64px;
-  background-repeat: no-repeat;
-  background-position: center;
   cursor: pointer;
   position: relative;
+  color: #000000;
 }
 
-.navigation-search {
-  background-image: url("../images/header/svg/search.svg");
+.user-icon {
+  display: block;
+  margin: 0 auto;
+  padding-top: 22px;
 }
 
-.navigation-favorite {
-  background-image: url("../images/header/svg/favorite.svg");
-}
-
-.navigation-favorite::after {
+.user-favorite::after {
   position: absolute;
   content: "12";
   font-size: 10px;
@@ -213,11 +217,11 @@ body {
   margin-left: 20px;
 }
 
-.navigation-link:hover, .navigation-link:focus {
+.navigation-link:hover, .navigation-link:focus, .user-link:hover, .user-link:focus {
   color: #756157;
 }
 
-.navigation-link:active {
+.navigation-link:active, .user-link:active {
   color: rgba(117, 97, 87, 0.3);
 }
 
@@ -539,6 +543,38 @@ body {
   border-radius: 0 4px 4px 0;
 }
 
+.subscribe-input::-webkit-input-placeholder {
+  font-family: "PT Sans", sans-serif;
+  color: #000000;
+  opacity: 60%;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.subscribe-input::-moz-placeholder {
+  font-family: "PT Sans", sans-serif;
+  color: #000000;
+  opacity: 60%;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.subscribe-input:-ms-input-placeholder {
+  font-family: "PT Sans", sans-serif;
+  color: #000000;
+  opacity: 60%;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.subscribe-input::-ms-input-placeholder {
+  font-family: "PT Sans", sans-serif;
+  color: #000000;
+  opacity: 60%;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .subscribe-input::placeholder {
   font-family: "PT Sans", sans-serif;
   color: #000000;
@@ -547,14 +583,8 @@ body {
   line-height: 24px;
 }
 
-.subscribe-input:hover {
+.subscribe-input:hover, .subscribe-input:focus {
   background-color: #E6E6E6;
-}
-
-.subscribe-input:focus {
-  background-color: #E6E6E6;
-  outline: 3px solid #68A2CA;
-  outline-offset: -3px;
 }
 
 .subscribe-input:active {
@@ -610,13 +640,17 @@ body {
   color: #FFFFFF;
   text-decoration: none;
   cursor: pointer;
+  padding-left: 10px;
   padding-right: 10px;
   padding-top: 8px;
   padding-bottom: 10px;
 }
 
+.breadcrumbs-item:first-child {
+  margin-left: -10px;
+}
+
 .breadcrumbs-item:not(:first-child) .breadcrumbs-link  {
-  padding-left: 10px;
   margin-left: 8px;
 }
 
@@ -625,8 +659,7 @@ body {
 }
 
 .breadcrumbs-link:focus {
-  color: #FFFFFF
-  outline: none;
+  color: #FFFFFF;
 }
 
 .breadcrumbs-link:active {
@@ -815,6 +848,7 @@ body {
   border: none;
   outline: none;
   -moz-appearance: textfield;
+  -webkit-appearance: textfield;
   appearance: textfield;
 }
 
@@ -883,7 +917,7 @@ body {
   cursor: pointer;
 }
 
-toggle-min {
+.toggle-min {
   left: 0;
 }
 
@@ -944,6 +978,8 @@ toggle-min {
   font: inherit;
   font-size: 18px;
   line-height: 21px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   background-color: #FFFFFF;
   background-image: url("../images/catalog/svg/sorting-arrow.svg");
@@ -1018,7 +1054,9 @@ toggle-min {
 /* Список гостиниц */
 
 .hotels-list {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 340px 20px 340px 20px 340px;
   grid-template-columns: repeat(3, 340px);
   gap: 20px;
   list-style: none;
@@ -1032,15 +1070,20 @@ toggle-min {
 .hotels-card {
   width: 298px;
   padding: 20px;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 140px 20px 140px;
   grid-template-columns: repeat(2, 140px);
   row-gap: 16px;
-  column-gap: 20px;
+  -webkit-column-gap: 20px;
+     -moz-column-gap: 20px;
+          column-gap: 20px;
   border: 1px solid #E6E6E6;
   border-radius: 4px;
 }
 
 .hotels-link {
+  -ms-grid-row: 1;
   grid-row: 1;
   grid-column: -1/1;
   color: #000000;
@@ -1062,14 +1105,18 @@ toggle-min {
 }
 
 .hotels-description {
+  -ms-grid-row: 2;
   grid-row: 2;
+  -ms-grid-column: 1;
   grid-column: 1;
   font-size: 18px;
   line-height: 21px;
 }
 
 .hotels-price {
+  -ms-grid-row: 2;
   grid-row: 2;
+  -ms-grid-column: 2;
   grid-column: 2;
   font-size: 18px;
   line-height: 21px;
@@ -1078,7 +1125,9 @@ toggle-min {
 }
 
 .hotels-button {
+  -ms-grid-row: 3;
   grid-row: 3;
+  -ms-grid-column: 1;
   grid-column: 1;
   width: 120px;
   font-size: 16px;
@@ -1086,11 +1135,14 @@ toggle-min {
 }
 
 .favorite {
+  -ms-grid-column: 2;
   grid-column: 2;
 }
 
 .hotels-stars {
+  -ms-grid-row: 4;
   grid-row: 4;
+  -ms-grid-column: 1;
   grid-column: 1;
   display: block;
   margin: auto 0;
@@ -1100,7 +1152,9 @@ toggle-min {
 }
 
 .hotels-rating {
+  -ms-grid-row: 4;
   grid-row: 4;
+  -ms-grid-column: 2;
   grid-column: 2;
   font-size: 16px;
   line-height: 20px;
@@ -1132,7 +1186,6 @@ toggle-min {
 .hotels-link:active .hotels-image {
   opacity: 30%;
 }
-
 
 /* Звёзды */
 
@@ -1198,7 +1251,6 @@ toggle-min {
   color: rgba(0, 0, 0, 0.3);
 }
 
-
 /* МОДАЛЬНОЕ ОКНО */
 
 .modal-container {
@@ -1211,12 +1263,15 @@ toggle-min {
   background-color: rgba(242, 242, 242, 0.8);
 }
 
+.modal-hidden {
+  display: none;
+}
+
 .modal {
   position: relative;
   margin: auto;
   background-color: #FFFFFF;
   min-width: 577px;
-  min-height: 448px;
   padding: 64px 70px;
   text-align: left;
   border-radius: 30px;
@@ -1269,12 +1324,15 @@ toggle-min {
 }
 
 .field-title {
+  display: inline-block;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   color: #000000;
   text-transform: capitalize;
   padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 .modal-field {
@@ -1289,6 +1347,42 @@ toggle-min {
   color: #000000;
   border-radius: 4px;
   margin-bottom: 4px;
+}
+
+.modal-field::-webkit-input-placeholder {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  opacity: 60%;
+}
+
+.modal-field::-moz-placeholder {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  opacity: 60%;
+}
+
+.modal-field:-ms-input-placeholder {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  opacity: 60%;
+}
+
+.modal-field::-ms-input-placeholder {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+  opacity: 60%;
 }
 
 .modal-field::placeholder {
@@ -1325,6 +1419,7 @@ toggle-min {
   cursor: pointer;
   opacity: 30%;
   border-radius: 4px;
+  -webkit-transform: translateX(-100%);
   transform: translateX(-100%);
   z-index: 1;
 }
@@ -1335,8 +1430,8 @@ toggle-min {
 
 .calendar:focus {
   opacity: 100%;
-  outline: 2px solid #83B3D3;
-  outline-offset: -2px;
+  outline: 3px solid #83B3D3;
+  outline-offset: -3px;
 }
 
 .calendar:active {
@@ -1401,11 +1496,44 @@ toggle-min {
   height: 48px;
   text-align: center;
   -moz-appearance: textfield;
+  -webkit-appearance: textfield;
   appearance: textfield;
 }
 
 .guests-input::-webkit-outer-spin-button, .guests-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+.guests-input::-webkit-input-placeholder {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.guests-input::-moz-placeholder {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.guests-input:-ms-input-placeholder {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+}
+
+.guests-input::-ms-input-placeholder {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
 }
 
 .guests-input::placeholder {
@@ -1472,7 +1600,6 @@ toggle-min {
 }
 
 .tooltip-text {
-  display: block;
   width: 216px;
   background-color: #333333;
   color: #FFFFFF;
@@ -1484,6 +1611,7 @@ toggle-min {
   padding-bottom: 18px;
   border-radius: 10px;
   position: absolute;
+  -webkit-transform: translateX(-45%) translateY(15px);
   transform: translateX(-45%) translateY(15px);
   z-index: 1;
   display: none;
